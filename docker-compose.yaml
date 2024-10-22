@@ -1,0 +1,19 @@
+
+services:
+  ollama:
+    build:
+      dockerfile: ollama/Dockerfile
+      context: .
+    ports:
+      - 8081:11434
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+    container_name: ollama
+    pull_policy: missing
+    tty: true
+#    restart: always
+#    networks:
+#      - ollama-docker
+#networks:
+#  ollama-docker:
+#    external: false
